@@ -1,0 +1,9 @@
+{
+  "navItem": [
+    { "id": 1, "link": "/", "name": "Quầy" },
+    { "id": 2, "link": "/gioi-thieu", "name": "Giới thiệu" },
+    { "id": 3, "link": "/dich-vu", "name": "Dịch vụ" },
+    { "id": 4, "link": "/hinh-anh", "name": "Hình ảnh" },
+    { "id": 5, "link": "/booking", "name": "Liên hệ - Booking" }
+  ]
+}

@@ -278,12 +278,12 @@ const Menu = () => {
 
   return (
     <div className="flex items-center py-10 justify-center flex-col  bg-[#9CA986] mx-auto">
-      {ServiceData.map((service) => (
+      {ServiceData.map((service, index) => (
         <div>
           {hiddenTitle == service.title && (
             <h2
               className="text-[#3A4D39]  mb-5 text-center font-semibold md:text-6xl pm:text-5xl uppercase"
-              key={service.title}
+              key={index}
             >
               {hiddenTitle}
             </h2>
@@ -300,11 +300,11 @@ const Menu = () => {
         `}
         </style>
         <div className="space-x-2 flex ">
-          {ServiceData.map((service) => (
+          {ServiceData.map((service, index) => (
             <>
               {hiddenTitle !== service.title && (
                 <a
-                  key={service.title}
+                  key={index}
                   onClick={() => handleTitleClick(service.title)}
                   className="px-4 py-3 mb-2 inline-block  font-medium rounded-lg capitalize cursor-pointer whitespace-nowrap text-black  hover:bg-[#739072]"
                 >

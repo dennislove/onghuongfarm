@@ -2,35 +2,66 @@ import React, { useEffect, useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa';
 import logo from '../../images/logo.png';
 import ButtonCall from '../Button/ButtonCall';
-import { Link } from 'react-router-dom';
+import { Link, useLocation } from 'react-router-dom';
+import { match } from 'path-to-regexp';
+import data from '../../data.json';
 
-const navLink = [
-  {
-    title: 'Quầy',
-    link: '/'
-  },
-  {
-    title: 'Giới thiệu',
-    link: '/gioi-thieu'
-  },
-  {
-    title: 'Dịch vụ',
-    link: '/dich-vu'
-  },
-  {
-    title: 'Hình ảnh',
-    link: '/hinh-anh'
-  },
-  {
-    title: 'Liên hệ - Booking',
-    link: '/booking'
+// const navLink = [
+//   {
+//     title: 'Quầy',
+//     link: '/'
+//   },
+//   {
+//     title: 'Giới thiệu',
+//     link: '/gioi-thieu'
+//   },
+//   {
+//     title: 'Dịch vụ',
+//     link: '/dich-vu'
+//   },
+//   {
+//     title: 'Hình ảnh',
+//     link: '/hinh-anh'
+//   },
+//   {
+//     title: 'Liên hệ - Booking',
+//     link: '/booking'
+//   }
+// ];
+const NavItem = ({ children, href, id }) => {
+  const location = useLocation();
+  const rootPath = location.pathname === '/';
+
+  let isActive;
+  if (href === '/') {
+    // Chỉ khi đường dẫn là root '/'
+    isActive = rootPath;
+  } else {
+    // Đối với tất cả đường dẫn khác, đảm bảo không khớp với root '/'
+    const matcher = match(href, { decode: decodeURIComponent, end: false });
+    isActive = matcher(location.pathname) && !rootPath;
   }
-];
+  return (
+    <div className="hover:text-[#4d869c] transition duration-300 ease-in-out text-[18px] font-bold relative group">
+      <Link
+        key={id}
+        to={href}
+        className={`${isActive ? 'text-[#4d869c]' : ''}`}
+      >
+        {children}
+        <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#4d869c] transition-all duration-300 group-hover:w-full"></span>
+      </Link>
+      {isActive && (
+        <span className="absolute left-0 -bottom-1 h-0.5 bg-[#4d869c] transition-all duration-300 w-full"></span>
+      )}
+    </div>
+  );
+};
 
 function HeaderComponent() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isFixed, setIsFixed] = useState(false);
-  const [activeItem, setActiveItem] = useState('');
+  const navLink = data.navItem;
 
   useEffect(() => {
     const handleScroll = () => {
@@ -72,17 +103,10 @@ function HeaderComponent() {
           </div>
 
           <nav className="hidden md:flex space-x-6">
-            {navLink.map((item, index) => (
-              <Link
-                key={index}
-                to={item.link}
-                className={`hover:text-[#4d869c] transition duration-300 ease-in-out text-[18px] font-bold relative group ${
-                  activeItem === item.title ? ' underline' : ''
-                }`}
-              >
-                {item.title}
-                <span className="absolute left-0 -bottom-1 w-0 h-0.5 bg-[#4d869c] transition-all duration-300 group-hover:w-full"></span>
-              </Link>
+            {navLink.map((item) => (
+              <NavItem key={item.id} href={item.link}>
+                {item.name}
+              </NavItem>
             ))}
           </nav>
 
@@ -100,7 +124,6 @@ function HeaderComponent() {
                 className="hover:text-[#4d869c] block py-2 transition duration-300 ease-in-out text-[18px] font-bold "
                 onClick={() => {
                   toggleMenu();
-                  setActiveItem(item);
                 }}
               >
                 {item.title}

@@ -3,7 +3,7 @@ import React, { Fragment } from 'react';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import DefautComponent from './components/DefautComponent/DefautComponent';
 import PageTitleManager from './routes/PageTitleManager';
-import { routes } from './routes';
+import { routes } from './routes/indexRoute';
 import firebaseConfig from './config/firebaseConfig';
 
 // Import the functions you need from the SDKs you need
@@ -28,11 +28,6 @@ import {
   uploadBytes,
   getDownloadURL
 } from 'firebase/storage';
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
-
-// Your web app's Firebase configuration
-// For Firebase JS SDK v7.20.0 and later, measurementId is optional
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
