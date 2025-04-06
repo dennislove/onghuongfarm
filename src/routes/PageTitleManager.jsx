@@ -8,9 +8,11 @@ const PageTitleManager = () => {
     '/': 'Ông Hướng Farm',
     '/gioi-thieu': 'OHF | Giới Thiệu',
     '/hinh-anh': 'OHF | Hình Ảnh',
-    '/chia-se/:slug': 'OHF | Dịch Vụ', // Đường dẫn này sử dụng tham số
+    '/chia-se/:slug': 'OHF | Dịch Vụ',
     '/dich-vu': 'OHF | Dịch Vụ',
-    '/booking': 'OHF | Booking'
+    '/booking': 'OHF | Booking',
+    '/mon-an': 'OHF | Món Ăn',
+    '/mon-an/:slug': 'OHF | Món Ăn'
   };
   useEffect(() => {
     const updateTitle = () => {

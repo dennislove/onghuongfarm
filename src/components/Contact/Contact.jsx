@@ -36,7 +36,7 @@ const Contact = () => {
   };
 
   return (
-    <section className="grid md:grid-cols-3 pm:grid-cols-1 gap-5  md:px-0 pm:ml-20">
+    <section className="grid md:grid-cols-3 pm:grid-cols-1 gap-5  md:px-0 ">
       <div className=" col-span-1  flex flex-col md:border-r-2 md:border-b-0 pm:border-b-2 pm:border-r-0 px-10">
         <h2 className=" text-center font-semibold text-3xl mt-4 text-white">
           Liên hệ đặt lịch ngay tại

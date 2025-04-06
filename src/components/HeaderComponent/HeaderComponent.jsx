@@ -6,28 +6,6 @@ import { Link, useLocation } from 'react-router-dom';
 import { match } from 'path-to-regexp';
 import data from '../../data.json';
 
-// const navLink = [
-//   {
-//     title: 'Quầy',
-//     link: '/'
-//   },
-//   {
-//     title: 'Giới thiệu',
-//     link: '/gioi-thieu'
-//   },
-//   {
-//     title: 'Dịch vụ',
-//     link: '/dich-vu'
-//   },
-//   {
-//     title: 'Hình ảnh',
-//     link: '/hinh-anh'
-//   },
-//   {
-//     title: 'Liên hệ - Booking',
-//     link: '/booking'
-//   }
-// ];
 const NavItem = ({ children, href, id }) => {
   const location = useLocation();
   const rootPath = location.pathname === '/';

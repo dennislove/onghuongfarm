@@ -23,14 +23,15 @@ function DefautComponent({ children }) {
   };
   return (
     <div className={` relative `}>
-      {showLetter && (
+      {/* {showLetter && (
         <Letter
           toggle={handleToggle}
           showLetter={showLetter}
           showText={showText}
         />
-      )}
-      <div className={` relative ${!showLetter ? '' : 'blur-[2px]'}`}>
+      )} */}
+      {/* //${!showLetter ? '' : 'blur-[2px]'} */}
+      <div className={` relative `}>
         <div className=" absolute z-50 w-full">
           <HeaderComponent />
         </div>

@@ -279,18 +279,15 @@ const Menu = () => {
   return (
     <div className="flex items-center py-10 justify-center flex-col  bg-[#9CA986] mx-auto">
       {ServiceData.map((service, index) => (
-        <div>
+        <div key={index}>
           {hiddenTitle == service.title && (
-            <h2
-              className="text-[#3A4D39]  mb-5 text-center font-semibold md:text-6xl pm:text-5xl uppercase"
-              key={index}
-            >
+            <h2 className="text-[#3A4D39]  mb-5 text-center font-semibold md:text-6xl pm:text-5xl uppercase">
               {hiddenTitle}
             </h2>
           )}
         </div>
       ))}
-      <div className=" pm:overflow-hidden md:w-auto pm:w-[300px] bg-[#E7E8D8] pm:overflow-x-auto shadow-md rounded-lg  scrollbar scrollbar-thumb-[#3A4D39] scrollbar-custom mb-5 mx-auto">
+      <div className=" pm:overflow-hidden md:w-auto pm:w-[400px] bg-[#E7E8D8] pm:overflow-x-auto shadow-md rounded-lg  scrollbar scrollbar-thumb-[#3A4D39] scrollbar-custom mb-5 mx-auto">
         <style>
           {`
           .scrollbar-custom::-webkit-scrollbar {
@@ -339,7 +336,7 @@ const Menu = () => {
       >
         {selectedItems.map((item, index) => (
           <SwiperSlide key={index}>
-            <div className="flex flex-col gap-6 mb-20 ml-5 bg-[#E7E8D8] group relative shadow-lg rounded-xl pl-6 py-8 h-[450px] w-[215px]  md:w-[350px] pm:w-[280px] overflow-hidden cursor-pointer mx-auto">
+            <div className="flex flex-col gap-6 mb-20 ml-5 bg-[#E7E8D8] group relative shadow-lg rounded-xl pl-6 py-8 h-[470px] w-[350px] overflow-hidden cursor-pointer mx-auto">
               <img src={item.url} alt="" className="w-[68%] mx-auto ml-16" />
 
               <div
